@@ -165,6 +165,7 @@ def generate(target_date: date, no_push: bool = False, extra: str = ""):
         "PAGE_URL":           verse_url,
         "PAGE_URL_ENCODED":   quote(verse_url),
         "GITHUB_USERNAME":    GITHUB_USERNAME,
+        "BUILD_TIMESTAMP":    datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ"),
     }
 
     # Write the individual verse page
