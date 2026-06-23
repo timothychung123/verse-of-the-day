@@ -2,17 +2,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --gold:       #c9a84c;
-  --gold-light: #e8d5a3;
-  --cream:      #fdf8f0;
-  --parchment:  #f5ede0;
-  --brown-dark: #3d2b1f;
-  --brown-mid:  #6b4c3b;
-  --brown-soft: #9c7060;
-  --text:       #2c1f14;
-  --text-soft:  #5a4030;
+  --gold:       #7a9e5a;   /* olive green accent */
+  --gold-light: #c2d9a8;   /* light sage */
+  --cream:      #f4f8f0;   /* cool white-green tint */
+  --parchment:  #e8f0e0;   /* pale sage */
+  --brown-dark: #2b3d24;   /* deep forest green */
+  --brown-mid:  #4a6b38;   /* mid olive */
+  --brown-soft: #6e8f5a;   /* muted olive */
+  --text:       #1e2e18;   /* near-black green */
+  --text-soft:  #3d5430;   /* readable dark olive */
   --white:      #ffffff;
-  --shadow:     rgba(61, 43, 31, 0.12);
+  --shadow:     rgba(43, 61, 36, 0.12);
   --radius:     12px;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans:  'Lato', 'Helvetica Neue', Arial, sans-serif;
@@ -32,7 +32,7 @@ body {
 
 /* ===== HEADER ===== */
 .site-header {
-  background: linear-gradient(135deg, var(--brown-dark) 0%, #5c3a28 60%, var(--brown-mid) 100%);
+  background: linear-gradient(135deg, var(--brown-dark) 0%, #3a5c2a 60%, var(--brown-mid) 100%);
   padding: 16px 24px;
   display: flex;
   align-items: center;
@@ -82,7 +82,7 @@ nav a:hover {
 
 /* ===== HERO / VERSE SECTION ===== */
 .hero {
-  background: linear-gradient(160deg, #4a2c1a 0%, #3d2b1f 40%, #2a1a10 100%);
+  background: linear-gradient(160deg, #344f27 0%, #2b3d24 40%, #1a2a14 100%);
   padding: 60px 24px 80px;
   text-align: center;
   position: relative;
@@ -297,7 +297,7 @@ nav a:hover {
 
 /* ===== PRAYER BOX ===== */
 .prayer-box {
-  background: linear-gradient(135deg, var(--brown-dark) 0%, #4e3427 100%);
+  background: linear-gradient(135deg, var(--brown-dark) 0%, #3a5228 100%);
   border-radius: 10px;
   padding: 28px 32px;
   margin-top: 8px;
@@ -352,7 +352,7 @@ nav a:hover {
 
 /* ===== ARCHIVE PAGE ===== */
 .page-hero {
-  background: linear-gradient(135deg, var(--brown-dark) 0%, #4e3427 100%);
+  background: linear-gradient(135deg, var(--brown-dark) 0%, #3a5228 100%);
   padding: 48px 24px;
   text-align: center;
 }
