@@ -45,7 +45,7 @@
           <span class="player-label">Listen</span>
           <select class="voice-select" id="voiceSelect" onchange="switchVoice()">
             <option value="../audio/2026-06-23-bella.mp3" selected>Female</option>
-            <option value="../audio/2026-06-23.mp3">Male</option>
+            <option value="../audio/2026-06-23-charlie.mp3">Male</option>
           </select>
         </div>
         <div class="player-row player-controls">
@@ -58,7 +58,7 @@
           </div>
           <span class="player-time" id="timeDisplay">0:00 / 0:00</span>
         </div>
-        <audio id="audioEl" preload="none">
+        <audio id="audioEl" preload="metadata">
           <source src="../audio/2026-06-23-bella.mp3" type="audio/mpeg">
         </audio>
       </div>
