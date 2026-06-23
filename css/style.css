@@ -186,6 +186,31 @@ nav a:hover { color: var(--white); }
 
 .article-body { padding: 0; }
 
+/* ===== AUDIO PLAYER ===== */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 0 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.audio-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--olive);
+  white-space: nowrap;
+}
+
+.audio-player audio {
+  flex: 1;
+  height: 36px;
+  accent-color: var(--olive);
+}
+
 /* ===== ARTICLE SECTIONS ===== */
 .article-section {
   margin-bottom: 64px;
