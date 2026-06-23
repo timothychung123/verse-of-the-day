@@ -441,8 +441,15 @@ nav a:hover {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   .hero { padding: 48px 16px 64px; }
+  .verse-text { font-size: 1.6rem; line-height: 1.55; }
   .verse-text::before, .verse-text::after { display: none; }
+  .verse-reference { font-size: 1.1rem; }
+  .article-section p { font-size: 1.08rem; line-height: 1.85; }
+  .section-label h2 { font-size: 1.15rem; }
+  .prayer-box p { font-size: 1.08rem; }
   .share-bar { gap: 8px; }
-  .share-btn { padding: 8px 14px; font-size: 0.78rem; }
+  .share-btn { padding: 8px 14px; font-size: 0.9rem; }
   .archive-grid { grid-template-columns: 1fr; }
+  .archive-card .card-ref { font-size: 1.05rem; }
+  .archive-card .card-preview { font-size: 0.95rem; }
 }
