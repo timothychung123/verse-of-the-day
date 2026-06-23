@@ -351,16 +351,22 @@ nav a:hover { color: var(--white); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
-  body { font-size: 18px; }
+  body { font-size: 20px; }
   .site-header { padding: 16px 20px; }
   .hero { padding: 60px 20px 80px; }
-  .verse-text { font-size: 1.65rem; line-height: 1.5; }
+  .verse-text { font-size: 1.9rem; line-height: 1.5; }
+  .verse-reference { font-size: 1.15rem; }
   .article-meta { padding: 32px 0 36px; margin-bottom: 48px; }
   .article-section { margin-bottom: 48px; }
-  .article-section p { font-size: 1.05rem; line-height: 1.85; }
+  .article-section p { font-size: 1.1rem; line-height: 1.9; }
+  .section-label h2 { font-size: 0.8rem; }
   .prayer-box { padding: 28px 24px; }
+  .prayer-box p { font-size: 1.1rem; }
   .share-bar { padding: 24px 16px; gap: 8px; }
-  .share-btn { font-size: 0.85rem; }
+  .share-btn { font-size: 0.9rem; }
   .archive-grid { grid-template-columns: 1fr; }
+  .archive-card .card-ref { font-size: 1.25rem; }
+  .archive-card .card-preview { font-size: 0.95rem; }
   .page-hero { padding: 52px 20px; }
+  .page-hero h1 { font-size: 2.2rem; }
 }
