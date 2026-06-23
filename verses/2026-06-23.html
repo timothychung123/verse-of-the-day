@@ -40,15 +40,25 @@
         <span>Daily Devotional</span>
       </div>
 
-      <div class="audio-player">
-        <span class="audio-label">Adam</span>
-        <audio controls preload="none">
-          <source src="../audio/2026-06-23.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-      <div class="audio-player">
-        <span class="audio-label">Bella</span>
-        <audio controls preload="none">
+      <div class="audio-player-custom" id="player">
+        <div class="player-row player-top">
+          <span class="player-label">Listen</span>
+          <select class="voice-select" id="voiceSelect" onchange="switchVoice()">
+            <option value="../audio/2026-06-23-bella.mp3" selected>Female</option>
+            <option value="../audio/2026-06-23.mp3">Male</option>
+          </select>
+        </div>
+        <div class="player-row player-controls">
+          <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+            <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <div class="player-progress" id="progressBar" onclick="seekAudio(event)">
+            <div class="player-progress-fill" id="progressFill"></div>
+          </div>
+          <span class="player-time" id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <audio id="audioEl" preload="none">
           <source src="../audio/2026-06-23-bella.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -119,6 +129,58 @@
 
   <div class="toast" id="toast">Verse copied to clipboard!</div>
   <script>
+    const audio = document.getElementById('audioEl');
+    const playBtn = document.getElementById('playBtn');
+    const iconPlay = document.getElementById('iconPlay');
+    const iconPause = document.getElementById('iconPause');
+    const progressFill = document.getElementById('progressFill');
+    const timeDisplay = document.getElementById('timeDisplay');
+
+    function fmt(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    }
+
+    function togglePlay() {
+      audio.paused ? audio.play() : audio.pause();
+    }
+
+    audio.addEventListener('play', () => {
+      iconPlay.style.display = 'none';
+      iconPause.style.display = 'block';
+    });
+    audio.addEventListener('pause', () => {
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+    });
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      timeDisplay.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    });
+    audio.addEventListener('ended', () => {
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+      progressFill.style.width = '0%';
+    });
+
+    function seekAudio(e) {
+      const bar = document.getElementById('progressBar');
+      const rect = bar.getBoundingClientRect();
+      audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+    }
+
+    function switchVoice() {
+      const src = document.getElementById('voiceSelect').value;
+      const wasPlaying = !audio.paused;
+      audio.pause();
+      audio.src = src;
+      audio.load();
+      progressFill.style.width = '0%';
+      timeDisplay.textContent = '0:00 / 0:00';
+      if (wasPlaying) audio.play();
+    }
+
     function copyVerse() {
       const text = '"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning." — Lamentations 3:22–23';
       navigator.clipboard.writeText(text).then(() => {
