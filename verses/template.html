@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{VERSE_REFERENCE}} — Verse of the Day</title>
+  <meta name="description" content="{{VERSE_TEXT_PLAIN}}">
+  <meta property="og:title" content="{{VERSE_REFERENCE}} — Verse of the Day">
+  <meta property="og:description" content="{{VERSE_TEXT_PLAIN}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{GITHUB_USERNAME}}.github.io/verse-of-the-day/verses/{{DATE_SLUG}}.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{VERSE_REFERENCE}} — Verse of the Day">
+  <meta name="twitter:description" content="{{VERSE_TEXT_PLAIN}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-logo" href="../index.html">
+      <span class="cross-icon">✝</span>
+      <span>Verse of the Day</span>
+    </a>
+    <nav>
+      <a href="../archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="date-badge">{{DATE_DISPLAY}}</div>
+    <p class="verse-reference">{{VERSE_REFERENCE}}</p>
+    <blockquote class="verse-text">{{VERSE_TEXT}}</blockquote>
+  </section>
+
+  <main class="container">
+    <article class="article-card">
+      <div class="article-meta">
+        <span>{{BOOK_NAME}}</span>
+        <span class="divider">•</span>
+        <span>{{READING_TIME}} min read</span>
+        <span class="divider">•</span>
+        <span>Daily Devotional</span>
+      </div>
+      <div class="article-body">
+        <div class="article-section">
+          <div class="section-label">
+            <div class="icon">📜</div>
+            <h2>Historical &amp; Biblical Context</h2>
+          </div>
+          {{SECTION_CONTEXT}}
+        </div>
+        <div class="ornament-divider">✦ ✦ ✦</div>
+        <div class="article-section">
+          <div class="section-label">
+            <div class="icon">🌿</div>
+            <h2>Practical Application for Today</h2>
+          </div>
+          {{SECTION_APPLICATION}}
+        </div>
+        <div class="ornament-divider">✦ ✦ ✦</div>
+        <div class="article-section">
+          <div class="section-label">
+            <div class="icon">✝️</div>
+            <h2>Connection to the Gospel</h2>
+          </div>
+          {{SECTION_GOSPEL}}
+        </div>
+        <div class="ornament-divider">✦ ✦ ✦</div>
+        <div class="article-section prayer-box">
+          <div class="section-label">
+            <div class="icon">🙏</div>
+            <h2>A Closing Prayer</h2>
+          </div>
+          {{SECTION_PRAYER}}
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- SHARE -->
+  <div class="share-bar">
+    <span class="share-label">Share this verse</span>
+    <button class="share-btn" onclick="copyVerse()">Copy</button>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text={{SHARE_TEXT_ENCODED}}" target="_blank" rel="noopener">Twitter</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{PAGE_URL_ENCODED}}" target="_blank" rel="noopener">Facebook</a>
+    <a class="share-btn" href="https://wa.me/?text={{SHARE_TEXT_ENCODED}}" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-nav">
+      <a href="../index.html">Today's Verse</a>
+      <a href="../archive.html">Archive</a>
+    </div>
+    <p>A new verse and reflection every day &mdash; pointing to Christ.</p>
+  </footer>
+
+  <div class="toast" id="toast">Verse copied to clipboard!</div>
+
+  <script>
+    function copyVerse() {
+      const text = `"{{VERSE_TEXT_PLAIN}}" — {{VERSE_REFERENCE}}\n\nRead today's reflection: {{PAGE_URL}}`;
+      navigator.clipboard.writeText(text).then(() => {
+        const t = document.getElementById('toast');
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
